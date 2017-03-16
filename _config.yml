@@ -127,8 +127,8 @@ links:
   About.me: https://about.me/chengkangyang
 
 algolia:
-  applicationID: '7GJ61FL8ME'
-  apiKey: 'c16f7671215d3a7d8df750ada94f9c05'
-  adminApiKey: 'e425f8e5f1e5632fa80eef20c3bf3521'
+  applicationID: 'GUMNS39PFY'
+  apiKey: '1d02ec8b8aa7ebb91cff1358be5381a8'
+  adminApiKey: '29623a4dbeda7db908f6b40097529474'
   indexName: 'blog'
   chunkSize: 5000

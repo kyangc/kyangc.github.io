@@ -30,6 +30,7 @@ install:
   - npm install hexo-util --save
   - npm install bluebird --save
   - npm install hexo-wordcount --save
+  - hexo algolia
 
 script:
   - hexo clean

@@ -33,6 +33,5 @@ install:
   - hexo algolia
 
 script:
-  - hexo clean
   - hexo g
   - hexo d

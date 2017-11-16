@@ -82,17 +82,17 @@ avatar: http://ww2.sinaimg.cn/mw690/825558b1jw8euar23urk6j20iw0iwq5z.jpg
 #Social
 social:
   GitHub: https://github.com/kyangc
-  Twitter: https://twitter.com/kyangc09
-  Weibo: http://weibo.com/chengky
-  DouBan: http://douban.com/people/kyanngc
-  ZhiHu: http://www.zhihu.com/people/kyangc
+  # Twitter: https://twitter.com/kyangc09
+  # Weibo: http://weibo.com/chengky
+  # DouBan: http://douban.com/people/kyanngc
+  # ZhiHu: http://www.zhihu.com/people/kyangc
 
 #baidu & google statics
 baidu_analytics: 79e5f1777443ff6072c9987f30cad699
 google_analytics: UA-66731021-1
 
 # JiaThis 分享服务
-jiathis: true
+jiathis: false
 
 #sitemap
 google_site_verification: dCQzzi5ka0rGrJdW9spN7a8YFFxO5fVAJb5-BpkYD40

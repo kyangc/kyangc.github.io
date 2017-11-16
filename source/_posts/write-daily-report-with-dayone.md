@@ -1,7 +1,7 @@
 title: 用 Dayone 写日报的正确姿势
 date: 2017-11-16 12:00:00
-categories: 技术
-tags: 效率,工具
+categories: 折腾
+tags: [效率,工具]
 description: 不是工具不好用，实在是人太懒呐
 ---
 

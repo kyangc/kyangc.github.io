@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/3.3.0/pangu.min.js"></script>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="nkXmmG07HVpLxAu6KTZ6Z3JZ0T3ZvUUU0YADWOg8JhA" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: true,
+    lazyload: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'GUMNS39PFY',
+      apiKey: '1d02ec8b8aa7ebb91cff1358be5381a8',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"查找文章","hits_empty":"没找到结果: ${query}","hits_stats":"找到${hits}个结果"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="好好学了下计算机网络……">
+<meta name="keywords" content="计算机网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机网络及Wireshark学习笔记">
+<meta property="og:url" content="http://blog.kyangc.com/2015/07/20/wireshark-learning-note/index.html">
+<meta property="og:site_name" content="阿阳的博客">
+<meta property="og:description" content="好好学了下计算机网络……">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-17T06:12:00.852Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算机网络及Wireshark学习笔记">
+<meta name="twitter:description" content="好好学了下计算机网络……">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="阿阳的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://blog.kyangc.com/2015/07/20/wireshark-learning-note/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>计算机网络及Wireshark学习笔记 | 阿阳的博客</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66731021-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66731021-1');
+</script>
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?79e5f1777443ff6072c9987f30cad699";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿阳的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">阿阳的博客看心情更新</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="https://about.me/chengkangyang" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />Tags<span class="badge">32</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories<span class="badge">5</span>
+      </a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives<span class="badge">34</span>
+      </a>
+</li>
+
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.kyangc.com/2015/07/20/wireshark-learning-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="KYANGC">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ojanerta1.bkt.clouddn.com/2017-06-28-cat-avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿阳的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">计算机网络及Wireshark学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-07-20T20:00:00+00:00">2015-07-20</time>
+            
+
+            
+            
+              
+                
+              
+            
+
+            
+              
+              <span class="post-meta-divider">|</span>
+              
+
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-03-17T06:12:00+00:00">2018-03-17</time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/07/20/wireshark-learning-note/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2015/07/20/wireshark-learning-note/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2015/07/20/wireshark-learning-note/" class="leancloud_visitors" data-flag-title="计算机网络及Wireshark学习笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Views&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             Views: 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+              <div class="post-description">好好学了下计算机网络……</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1、网络通信原理"><a href="#1、网络通信原理" class="headerlink" title="1、网络通信原理"></a>1、网络通信原理</h2><p>ISO参考模型：7层协议。</p>
+<blockquote>
+<p>7 <strong>应用层</strong>：用户接口。常用协议：HTTP、SMTP、FTP、Telnet<br>6 <strong>表示层</strong>：数据编解码、加解密。常用协议：ASCII、MPEG、JPEG、MIDI。<br>5 <strong>会话层</strong>：负责建立、维护连接。常用协议：NetBIOS、SAP、SDP、NWLink。<br>4 <strong>传输层</strong>：提供可靠的数据传输。常用协议：TCP、UDP、SPX。<br>3 <strong>网络层</strong>：路由转发、数据包分片。常用协议：IP、IPX。（路由器工作在这里）<br>2 <strong>数据链路层</strong>：物理网络传输数据的方法，提供一个寻址方案，找到确实的设备。主要协议：Ethernet、Token Ring、FDDI、AppleTalk。（网桥、交换机工作在这里）<br>1 <strong>物理层</strong>：硬件相关。</p>
+</blockquote>
+<p>在传输中，会对传输的数据进行封装，封装的结果叫做协议数据单元<code>PDU（Protocol Data Unit）</code>，发送时逐级向下<code>封装</code>，接收时逐级向上<code>解封</code>。</p>
+<p>TCP/IP模型中没有表示层和会话层，协议栈中也没有单独设计相关的协议。以HTTP连接为例，应用层产生HTTP数据包，经过传输层，通过<code>TCP</code>协议进行可靠的传输，在网络层通过<code>IP</code>对于传输设备进行定位，最终在数据链路层通过加上<code>以太网相关</code>的头部，放入物理层进行传输。</p>
+<p>网络硬件：</p>
+<blockquote>
+<p><strong>集线器</strong>：工作在链路层，将受到的信号转播到每一个端口中。不对Mac进行检查，效率低、半双工模式。<br><strong>交换机</strong>：工作在链路层，将收到的信号转播到对应的MAC地址的端口上，减少了机器拒绝的时间，效率更高，双工。<br><strong>路由器</strong>：工作在网络层，负责在多个网络之间转发数据包。通常使用第三层地址（IP）来标示网络上的唯一设备。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="2、网络底层协议"><a href="#2、网络底层协议" class="headerlink" title="2、网络底层协议"></a>2、网络底层协议</h2><h3 id="1、地址解析协议ARP"><a href="#1、地址解析协议ARP" class="headerlink" title="1、地址解析协议ARP"></a>1、地址解析协议<code>ARP</code></h3><p>正常网络通信中需要用到<code>逻辑地址</code>和<code>物理地址</code>。</p>
+<blockquote>
+<p><code>逻辑地址</code>用于不同网络、没有直接相连的设备之间进行通信。<br><code>物理地址</code>用于在单一网段中<strong>交换机直接连接的设备之间</strong>进行通信。</p>
+</blockquote>
+<p>在<code>TCP/IP</code>协议中，<code>IP</code>地址已经完成了到第三层的传输，进一步的为了获取到设备的真实MAC地址进而进行单一网络中的通信，<code>TCP/IP</code>协议中使用<code>ARP(Address Resolution Protocol)</code>来进行<code>IP</code>向<code>MAC</code>地址的转换。</p>
+<p>这个协议使用两种数据包，一个<code>ARP</code>请求，一个<code>ARP</code>响应。<code>ARP</code>请求通过向全部设备广播ARP请求消息，当网段中符合要求的主机收到消息，将发送<code>ARP</code>响应告诉请求者自己的真实MAC地址。</p>
+<h3 id="2、互联网协议IP"><a href="#2、互联网协议IP" class="headerlink" title="2、互联网协议IP"></a>2、互联网协议<code>IP</code></h3><p>在该层的通信中，主要负责跨网络的通信，在这个层面上协议不止一个，但是通行很广的还是<code>IP</code>协议，包括<code>IPv6</code>和<code>IPv4</code>。</p>
+<p>v4条件下，<code>IP</code>地址被分为2个部分，<code>网络地址</code>和<code>主机地址</code>，网络地址用来标识局域网，主机地址则是标示这个网络中的设备本身，用于决定哪部分是主机，使用的是<code>掩码</code>，<code>掩码</code>中标示为1的位代表的是网络地址，剩下的则标示着主机地址。</p>
+<p><code>IPv4</code>头部很复杂，包含了很多有用的信息，比较重要的有：</p>
+<blockquote>
+<ul>
+<li><strong>存活时间<code>TTL</code></strong>：定义了在该数据包被丢弃之前所能经历的时间（能够经历的最大路由数目）。数据包被发出时会定义<code>TTL</code>，之后每次经历一个路由器，正常情况下都会被减1，当网络拥堵时延较长时有可能被减掉更多（但多数时候不会）。<code>TTL</code>的设计原理在于，数据包在网络中传输通常会经历数十个路由器，其中难免会有错误配置的路由，在这种情况下路由器可能做很多事，其中一件就是让这个数据包进入死循环——而这必然会占用大量资源，直至<code>DoS</code>的情况出现，<code>TTL</code>的设定就是防止这种事情的发生。</li>
+<li><p><strong><code>IP</code>分片</strong>：数据包分片的目的是将一个数据流分为更小的片段，是<code>IP</code>为了解决跨越不同类型网络时可靠传输的特性。数据包得分片主要基于第二层协议所使用的<code>最大传输单元MTU</code>的大小以及使用这些第二层设备的配置情况。以太网的默认MTU是<code>1500</code>，所以说以太网上能传输的最大数据包大小是<code>1500</code>字节。当需要传输的<code>IP</code>数据包大于<code>MTU</code>，将对这个数据包进行分片，分片的过程如下：</p>
+<ol>
+<li>将传输的数据分块</li>
+<li>将每个<code>IP</code>数据包的头部总长度设为每个分片的长度</li>
+<li>将<code>IP</code>数据包头部中的分片标志位置1，除了最后一个数据包（最后一个数据包的Flags所有位都是0）</li>
+<li>设置每个数据包的分片偏移量（这里注意，偏移量表征的是该<code>IP</code>数据包中的数据块对应于原有的大数据块中的偏移量。在MTU=1500情况下，第一个的offset是0，第二个的offset是1500-HeaderLength……）</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<h3 id="3、传输控制协议TCP"><a href="#3、传输控制协议TCP" class="headerlink" title="3、传输控制协议TCP"></a>3、传输控制协议<code>TCP</code></h3><p>最终目的是提供数据<strong>可靠地端到端传递</strong>。该协议工作在第四层。能够处理数据的顺序和错误恢复，并且保证数据能够到到达其应该到达的地方。</p>
+<p><code>TCP</code>通信使用端口进行，所有的TCP通信都会使用源端口和目的端口（像电话机一样）。</p>
+<p><code>TCP</code>进行数据通信之前会进行著名的<code>三次握手</code>：</p>
+<blockquote>
+<ol>
+<li>由发起链接请求的主机向连接对象送出一个<code>TCP</code>数据包，不含数据，只有包头，并且设置<code>Flags</code>量中的<code>SYN</code>为1，并发送一个<code>SequenceNumber</code>给对方。</li>
+<li>目标主机收到<code>SYN</code>信号之后，回复<code>SYN/ACK</code>信号给发起主机。同时发送一个<code>AcknowledgeNumber</code>给对方，这个值等于收到的<code>SequenceNumber</code>+1；此外会发送属于目标主机的<code>SequenceNumber</code>给发起主机。</li>
+<li>发起主机收到<code>SYN/ACK</code>信号之后，检查<code>AcknowledgeNumber</code>是否与本地的<code>SequenceNumber</code>+1相等，若想等则说明传输无误，回复<code>ACK</code>信号给目标主机，并且回复<code>AcknowledgeNumber</code>到目标主机，其值为目标主机的<code>SequenceNumber</code>+1，目标主机收到信号之后检查<code>AcknowledgeNumber</code>是否与本地的<code>SequenceNumber</code>+1相等，若想等则说明传输无误，连接建立。</li>
+</ol>
+</blockquote>
+<p><code>TCP</code>停止链接同样要经历几个过程：</p>
+<blockquote>
+<ol>
+<li>请求结束的主机发送<code>FIN/ACK</code>到目的主机。</li>
+<li>目的主机回复<code>ACK</code>到请求主机。</li>
+<li>目的主机发送<code>FIN/ACK</code>到请求主机。</li>
+<li>请求主机回复<code>ACK</code>到目的主机，结束链接。</li>
+</ol>
+</blockquote>
+<h3 id="4、用户数据报协议UDP"><a href="#4、用户数据报协议UDP" class="headerlink" title="4、用户数据报协议UDP"></a>4、用户数据报协议<code>UDP</code></h3><p><code>UDP</code>主要目的在于提高传输速率，是一种尽力服务，是一种无连接协议。一般依赖于<code>UDP</code>的服务会内建其他的可靠性措施。如<code>DNS</code>和<code>DHCP</code>这种高度依赖传输速度的服务，使用<code>UDP</code>作为传输层的协议，并自己实现差错控制的方法。</p>
+<h3 id="5、互联网控制消息协议ICMP"><a href="#5、互联网控制消息协议ICMP" class="headerlink" title="5、互联网控制消息协议ICMP"></a>5、互联网控制消息协议<code>ICMP</code></h3><p><code>TCP/IP</code>协议栈中的一个效用协议，负责提供在<code>TCP/IP</code>网络上的设备、服务以及路由器可用性的分析。<code>ICMP</code>的类型和作用取决于其<code>Type</code>和<code>Code</code>域。<code>Ping</code>是一个工具，通过发送<code>ICMP echo</code>请求数据包来达到检测网络状况的目的。</p>
+<h2 id="3、高层网络协议"><a href="#3、高层网络协议" class="headerlink" title="3、高层网络协议"></a>3、高层网络协议</h2><h3 id="1、DHCP"><a href="#1、DHCP" class="headerlink" title="1、DHCP"></a>1、DHCP</h3><p><code>DHCP</code>是一个应用层协议，能够让设备自动获取IP地址，DHCP最主要的任务就是在续租过程中向客户端分配IP地址。<code>DHCP</code>的续租过程被称为<code>DORA</code>过程，分为以下四步：</p>
+<blockquote>
+<ol>
+<li><strong>发现（<code>Discover</code>）</strong>：在客户端启动的时候，首先会广播<code>Discover</code>报文（在这报文里面包括了客户端的<code>MAC</code>地址）。<code>Discovery</code>报文可以理解为：客户端去发现<code>DHCP Server</code>。由于是广播，可以保证DHCP server收到这个报文。</li>
+<li><strong>提供（<code>Offer</code>）</strong>：<code>DHCP server</code>收到这个报文后他就知道某个客户端要请求一个IP地址，<code>DHCP server</code>就参照<code>Discover</code>报文里面的<code>MAC</code>地址,然后从他配置的<code>DHCP</code>地址池里面分配一个IP地址。然后把这个地址用<code>Offer</code>消息告诉客户端。这个报文里面会把<code>Discovery</code>里面客户端的MAC包含进去。客户机收到后比较下<code>MAC</code>，发现报文里面的<code>MAC</code>和自己的<code>MAC</code>一样就会认为这个报文是发给他的。</li>
+<li><strong>请求（<code>Request</code>）</strong>：由于<code>DHCP server</code>可能有多个，所以客户端发一个<code>Discovery</code>就很有可能收到多个<code>Offer</code>。这时候客户端必须表示我用哪个<code>Offer</code>的地址。所以客户端再次发一个<code>Request</code>报文，表明我要用这个<code>Discovery</code>的报文。</li>
+<li><strong>确认（<code>Acknowledge</code>）</strong>：最后<code>DHCP server</code>回一个<code>ACK</code>。做一个确定。</li>
+</ol>
+</blockquote>
+<h3 id="2、域名系统DNS"><a href="#2、域名系统DNS" class="headerlink" title="2、域名系统DNS"></a>2、域名系统<code>DNS</code></h3><h3 id="3、超文本传输协议HTTP"><a href="#3、超文本传输协议HTTP" class="headerlink" title="3、超文本传输协议HTTP"></a>3、超文本传输协议<code>HTTP</code></h3><p><code>HTTP</code>是万维网的传输机制，允许浏览器通过连接Web服务器浏览网页。</p>
+<p><code>HTTP GET</code>过程建立在<code>TCP</code>之上，首先是通过三次握手建立连接，而后通过TCP向服务器设定的端口（HTTP通常默认使用80端口，HTTPS默认使用443端口）传递HTTP数据包，包中包含资源标示符、操作资源的方式等等定义。服务器读取请求之后通过发送一个HTTP包返回ACK信息。之后开始传输数据，形式是TCP分片。传输结束之后，服务器传输一个带有响应码的封包结束过程。成功的响应吗是200。</p>
+<p><code>HTTP POST</code>的过程也建立在<code>TCP</code>之上，过程与上类似，只是在结束之后的响应码通常为302，代表该资源找到。而这个响应的数据包通常也被用于重定向的手段，在其location域指明了客户端被重定向的位置。</p>
+<h3 id="4、超文本传输安全协议HTTPS"><a href="#4、超文本传输安全协议HTTPS" class="headerlink" title="4、超文本传输安全协议HTTPS"></a>4、超文本传输安全协议<code>HTTPS</code></h3><p>HTTPS在传输数据之前需要客户端（浏览器）与服务端（网站）之间进行一次握手，在握手过程中将确立双方加密传输数据的密码信息。TLS/SSL协议不仅仅是一套加密传输的协议，更是一件经过艺术家精心设计的艺术品，TLS/SSL中使用了非对称加密，对称加密以及HASH算法。</p>
+<p>握手过程的简单描述如下：</p>
+<blockquote>
+<ol>
+<li>浏览器将自己支持的一套加密规则发送给网站。</li>
+<li>网站从中选出一组加密算法与<code>HASH</code>算法，并将自己的身份信息以<code>证书</code>的形式发回给浏览器。证书里面包含了网站地址，加密公钥，以及证书的颁发机构等信息。</li>
+<li>获得网站证书之后浏览器要做以下工作：<ol>
+<li>验证证书的合法性（颁发证书的机构是否合法，证书中包含的网站地址是否与正在访问的地址一致等），如果证书受信任，则浏览器栏里面会显示一个小锁头，否则会给出证书不受信的提示。</li>
+<li>如果证书受信任，或者是用户接受了不受信的证书，浏览器会生成一串随机数的密码，并用证书中提供的公钥加密。</li>
+<li>使用约定好的HASH计算握手消息，并使用生成的随机数对消息进行加密，最后将之前生成的所有信息发送给网站。</li>
+</ol>
+</li>
+<li>网站接收浏览器发来的数据之后要做以下的操作：<ol>
+<li>使用自己的私钥将信息解密取出密码，使用密码解密浏览器发来的握手消息，并验证HASH是否与浏览器发来的一致。</li>
+<li>使用密码加密一段握手消息，发送给浏览器。</li>
+</ol>
+</li>
+<li>浏览器解密并计算握手消息的HASH，如果与服务端发来的HASH一致，此时握手过程结束，之后所有的通信数据将由之前浏览器生成的随机密码并利用对称加密算法进行加密。这里浏览器与网站互相发送加密的握手消息并验证，目的是为了保证双方都获得了一致的密码，并且可以正常的加密解密数据，为后续真正数据的传输做一次测试。</li>
+</ol>
+</blockquote>
+<p>HTTPS一般使用的加密与HASH算法如下：</p>
+<blockquote>
+<p>非对称加密算法：RSA，DSA/DSS<br>对称加密算法：AES，RC4，3DES<br>HASH算法：MD5，SHA1，SHA256</p>
+</blockquote>
+<p>其中非对称加密算法用于在握手过程中加密生成的密码，对称加密算法用于对真正传输的数据进行加密，而HASH算法用于验证数据的完整性。由于浏览器生成的密码是整个数据加密的关键，因此在传输的时候使用了非对称加密算法对其加密。非对称加密算法会生成公钥和私钥，公钥只能用于加密数据，因此可以随意传输，而网站的私钥用于对数据进行解密，所以网站都会非常小心的保管自己的私钥，防止泄漏。</p>
+<h2 id="5、监听网络线路"><a href="#5、监听网络线路" class="headerlink" title="5、监听网络线路"></a>5、监听网络线路</h2><p>首先，需要一块支持混杂模式的网卡才能嗅探数据包，混杂模式的意思是它允许网卡看到所有流经网络线路数据包的驱动模式。</p>
+<p>在集线器环境下进行数据嗅探是最理想的情况，你可以从你的端口中听到所有连接到集线器中的设备的网络通信信息。但是集线器环境已经基本不存在了，所以这个环境下的监听很难实现。</p>
+<p>在交换机环境下进行数据嗅探则要复杂得多，因为交换机只会与特定端口进行通信（除某些广播消息外），通常采用的方法有如下几个：</p>
+<blockquote>
+<p><strong>端口镜像</strong>：通过设置交换机的镜像端口来实现监听。<br><strong>集线器输出</strong>：将需要监听的端口和监听器接入同一个集线器。（类似作弊）<br><strong>使用网络分流器</strong>：在通信链路中使用分流器监听。<br><strong>使用ARP欺骗</strong>：ARP负责翻译第三层的IP地址到第二层的MAC地址，如果我们污染了ARP缓存，使得目标设备的ip对应于嗅探器的mac，那么所有的进出流量都会经由嗅探器流动，从而也达到了监听的目的。</p>
+</blockquote>
+<h2 id="5、Wireshark简单使用说明"><a href="#5、Wireshark简单使用说明" class="headerlink" title="5、Wireshark简单使用说明"></a>5、Wireshark简单使用说明</h2><ul>
+<li>Wireshark的过滤器</li>
+</ul>
+<blockquote>
+<p>分为捕获过滤器和显示过滤器，这两个过滤器都使用BPF语法进行过滤器的定义。BPF的语法结构为：<code>n</code>*<code>限定词</code>+<code>ID</code>=<code>原语</code> 多个<code>原语</code>通过<code>||</code>、<code>&amp;&amp;</code>、<code>!</code>连接起来成为一个限定表达式。</p>
+</blockquote>
+<p>限定词分为三种：</p>
+<blockquote>
+<p><strong>Type</strong>：数字或字母的意义 <code>host</code>(默认)，<code>net</code>，<code>port</code>……<br><strong>Dir</strong>：指明传输方向是前往还是来自 <code>src</code>，<code>dst</code><br><strong>Proto</strong>：指明匹配的协议 <code>ether</code>，<code>ip</code>，<code>tcp</code>……</p>
+</blockquote>
+<p>通过设定各种过滤条件，可以配置出各种符合我们需求的过滤器。</p>
+<ul>
+<li>Wireshark高级特性</li>
+</ul>
+<blockquote>
+<p><strong>端点 endpoint</strong>：网络通信中的收发者。<br><strong>会话 conversation</strong>：端点之间的通信。</p>
+</blockquote>
+<p>Wireshark中针对这两者有专门的统计工具，可以看到基于端点或者会话的流量状态。同时，Wireshark中还有基于协议栈的统计工具，可以看到某种协议下的链接占了总连接数的多少部分。</p>
+<p>Wireshark同时提供对于Mac、ip地址的解析，可以直观的将MAC转换成对应的ip地址，但是这样会带来额外的DNS开销。可能会让抓包来的数据充斥着DNS数据包。</p>
+<p>Wireshark提供对于协议数据包的强制解码能力，可以让你将数据包拆分成多个协议区段以分析。因为Wireshark的开源特性，当需要对某种特定的协议进行解析而软件中没有内置解析方法的时候，可以根据已有的解析文件进行自己编制新的解析文件。</p>
+<p>Wireshark可以跟踪TCP流，可以看到TCP流整个过程中的发送情况。可以看到最原始的数据交换。</p>
+<h2 id="6、利用Wireshark解决网络问题"><a href="#6、利用Wireshark解决网络问题" class="headerlink" title="6、利用Wireshark解决网络问题"></a>6、利用Wireshark解决网络问题</h2><p>利用<code>TCP</code>数据包的错误恢复特性进行网络环境的检修是非常有用的一件事。</p>
+<h3 id="1、TCP的错误恢复特性"><a href="#1、TCP的错误恢复特性" class="headerlink" title="1、TCP的错误恢复特性"></a>1、TCP的错误恢复特性</h3><h4 id="1、重传机制"><a href="#1、重传机制" class="headerlink" title="1、重传机制"></a>1、重传机制</h4><p>决定是否有必要重传的机制叫做重传计时器。这个计时器负责维护一个叫重传超时<code>RTO</code>的值，每当使用<code>TCP</code>传递一个数据包的时候计时器就启动，当收到这个数据包的ACK的时候计时器停止，这两个时刻之间的值叫做往返时间<code>RTT</code>，若干次<code>RTT</code>的测量之后得到的值就是<code>RTO</code>。在<code>RTT</code>值不够多的时候，依靠默认的<code>RTO</code>值。</p>
+<p><code>RTO</code>值被用于决定发送数据包之后过多久重传数据，当在这段时间内收到ACK信号则不需要重传，否则like重传，并将RTO值翻倍，依次类推直到达到最大重传数。</p>
+<p><code>TCP</code>在传递数据的时候，发送者会附带一个<code>SEQ</code>值，发送之后将该值自增发送数据包的大小，接受者成功接收之后会回复一个<code>ACK</code>值，其值为<code>SEQ</code>值和传递的数据包大小之和，若接收端收到的<code>SEQ</code>值不等于<code>ACK</code>那么为了保证数据的有序性，接收端会回复，该<code>ACK</code>值；发送者检查现在的<code>SEQ</code>和收到的<code>ACK</code>值是否一致，若连续三次检测到不一致，则代表数据丢失，则会按照接收端传回的<code>ACK</code>值发送数据包，完成数据重传。</p>
+<p>当发送端认为接收端没有收到数据的时候会重传数据，这是通过<code>RTO</code>完成的，由发送端决定；当发送端收到连续三次接收端相同数据<code>ACK</code>的时候，也会临时重传数据，这是由接收端决定的。</p>
+<h4 id="2、流控制"><a href="#2、流控制" class="headerlink" title="2、流控制"></a>2、流控制</h4><p><code>TCP</code>使用滑动窗口技术来检测何时发生了数据包丢失并调整数据传递速率以加以避免。</p>
+<p>通常接受主机有一个缓冲区和一个接收窗口，发送主机只能发送大小小于接收窗口的数据包，接受主机在接受了一定数量的数据之后会处理缓冲区中的数据，并返回<code>ACK</code>给发送主机，在<code>ACK</code>中更新窗口大小。如果接收机认为发送机的发送速率自己能够处理得过来，那么窗口大小不变；如果认为发送速度太快，那么将减小窗口大小；如果已经完全无法接收数据，那么将回设窗口大小为0。</p>
+<h3 id="2、定位网络延迟"><a href="#2、定位网络延迟" class="headerlink" title="2、定位网络延迟"></a>2、定位网络延迟</h3><p>通常关注六个数据包：三次握手、初始<code>HTTP GET</code>请求、对该请求的确认以及第一个数据包：</p>
+<blockquote>
+<ol>
+<li>A -&gt; B:<code>SYNC</code></li>
+<li>B -&gt; A:<code>SYNC/ACK</code></li>
+<li>A -&gt; B:<code>ACK</code></li>
+<li>A -&gt; B:<code>GET</code></li>
+<li>B -&gt; A:<code>ACK</code></li>
+<li>B -&gt; A:<code>DATA</code></li>
+</ol>
+</blockquote>
+<p>通常的，我们只关心这些步骤之间的延迟。通常的，异常的高延迟通常代表了以下的内容：</p>
+<blockquote>
+<ol>
+<li>在三次握手中，通常接收到信号-&gt;回发送信号的过程是很难被影响到的，基本不会是因为这个原因产生延迟，因此在这个阶段的延迟通常都来自于网络传输。</li>
+<li>从握手完毕到发送<code>GET</code>请求这个过程可能会因为客户端的处理器忙带来延迟。</li>
+<li>从发出<code>GET</code>信号到收到服务器的确认消息的过程基本也只会被线路延迟影响。</li>
+<li>从服务器发送<code>ACK</code>信号之后到第一次发送数据，这段时间可能会受到服务器的负载影响。</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author: </strong>KYANGC</li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://blog.kyangc.com/2015/07/20/wireshark-learning-note/" title="计算机网络及Wireshark学习笔记">http://blog.kyangc.com/2015/07/20/wireshark-learning-note/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机网络/" rel="tag"># 计算机网络</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/07/15/adb-learning/" rel="next" title="ADB(Android Debug Bridge)学习笔记">
+                <i class="fa fa-chevron-left"></i> ADB(Android Debug Bridge)学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/01/alipay-internship-sumary/" rel="prev" title="支付宝/客户端开发实习生 实习总结">
+                支付宝/客户端开发实习生 实习总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://ojanerta1.bkt.clouddn.com/2017-06-28-cat-avatar.jpeg"
+                alt="KYANGC" />
+            
+              <p class="site-author-name" itemprop="name">KYANGC</p>
+              <p class="site-description motion-element" itemprop="description">阿阳是个正在爬坡的 Android 工程师。</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/kyangc" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/tt_kyc" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.instagram.com/ins_kyc" target="_blank" title="Instagram"><i class="fa fa-fw fa-instagram"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://about.me/chengkangyang" title="About.me" target="_blank">About.me</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、网络通信原理"><span class="nav-number">1.</span> <span class="nav-text">1、网络通信原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、网络底层协议"><span class="nav-number">2.</span> <span class="nav-text">2、网络底层协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、地址解析协议ARP"><span class="nav-number">2.1.</span> <span class="nav-text">1、地址解析协议ARP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、互联网协议IP"><span class="nav-number">2.2.</span> <span class="nav-text">2、互联网协议IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、传输控制协议TCP"><span class="nav-number">2.3.</span> <span class="nav-text">3、传输控制协议TCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、用户数据报协议UDP"><span class="nav-number">2.4.</span> <span class="nav-text">4、用户数据报协议UDP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、互联网控制消息协议ICMP"><span class="nav-number">2.5.</span> <span class="nav-text">5、互联网控制消息协议ICMP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、高层网络协议"><span class="nav-number">3.</span> <span class="nav-text">3、高层网络协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、DHCP"><span class="nav-number">3.1.</span> <span class="nav-text">1、DHCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、域名系统DNS"><span class="nav-number">3.2.</span> <span class="nav-text">2、域名系统DNS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、超文本传输协议HTTP"><span class="nav-number">3.3.</span> <span class="nav-text">3、超文本传输协议HTTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、超文本传输安全协议HTTPS"><span class="nav-number">3.4.</span> <span class="nav-text">4、超文本传输安全协议HTTPS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、监听网络线路"><span class="nav-number">4.</span> <span class="nav-text">5、监听网络线路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、Wireshark简单使用说明"><span class="nav-number">5.</span> <span class="nav-text">5、Wireshark简单使用说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、利用Wireshark解决网络问题"><span class="nav-number">6.</span> <span class="nav-text">6、利用Wireshark解决网络问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、TCP的错误恢复特性"><span class="nav-number">6.1.</span> <span class="nav-text">1、TCP的错误恢复特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、重传机制"><span class="nav-number">6.1.1.</span> <span class="nav-text">1、重传机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、流控制"><span class="nav-number">6.1.2.</span> <span class="nav-text">2、流控制</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、定位网络延迟"><span class="nav-number">6.2.</span> <span class="nav-text">2、定位网络延迟</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KYANGC</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Mist</a> v6.0.6</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="Total Visitors">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="Total Views">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=60161324";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1262343828&web_id=1262343828" language="JavaScript"></script>
+  </div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'BJrzgG1BKclyDP6ysInRUETr-gzGzoHsz',
+        appKey: '3fUzRiD2iLjQPipYyuyU9QgQ',
+        placeholder: '说点什么...',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.0.6"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("MSr2HPfx4MyLquALm7PlnpNc-gzGzoHsz", "bydxeOtJkbgnFmUYvcmPWGY2");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var newcounter = new Counter();
+              /* Set ACL */
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              newcounter.setACL(acl);
+              /* End Set ACL */
+              newcounter.set("title", title);
+              newcounter.set("url", url);
+              newcounter.set("time", 1);
+              newcounter.save(null, {
+                success: function(newcounter) {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                },
+                error: function(newcounter, error) {
+                  console.log('Failed to create');
+                }
+              });
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+  <script type="text/javascript">
+  wpac_init = window.wpac_init || [];
+  wpac_init.push({widget: 'Rating', id: 5893,
+    el: 'wpac-rating',
+    color: 'fc6423'
+  });
+  (function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = '//embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+  })();
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  <script>pangu.spacingPage();</script>
+</body>
+</html>
